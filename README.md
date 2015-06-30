@@ -37,4 +37,4 @@ Link to your blog, twitter, etc!
 
 ## License
 
-Media Watchlist is MIT Licensed. See LICENSE for details.
+Media Watchlist is MIT Licensed. See LICENSE for details.# media-watchlist
