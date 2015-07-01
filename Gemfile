@@ -52,12 +52,17 @@ group :test, :development do
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
+  gem 'wikipedia-client', '~> 1.4.0'
 end
 
 group :production do
   gem 'pg'
   gem 'google-analytics-rails'
   gem 'rails_12factor'
+end
+
+group :development do
+  gem 'meta_request'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'

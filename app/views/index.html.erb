@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Media Watchlist - Search Smarter</title>
+</head>
+<body>
+  <div id="container"></div>
+  <div class="ny-times"></div>
+  <div class="wikipedia">
+    <%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+  <div class="twitter"></div>
+</body>
+</html>

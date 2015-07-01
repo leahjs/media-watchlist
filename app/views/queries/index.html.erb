@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Queries</h1>
+
+ <div id="container"></div>
+
+  <div class="wikipedia">
+  <%= form_for @query do |f| %>
+    <%= f.label :first_name, "First Name"%>
+    <%= f.text_field :first_name, placeholder: "Mary" %><br>
+
+    <%= f.submit "Find a Student", class: "btn btn-default btn-sm" %><br>
+  <% end %>
+  </div>
+ 
+  <div class="twitter"></div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @queries.each do |query| %>
+      <tr>
+        <td><%= link_to 'Show', query %></td>
+        <td><%= link_to 'Edit', edit_query_path(query) %></td>
+        <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Query', new_query_path %>
