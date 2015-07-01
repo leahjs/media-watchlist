@@ -21,10 +21,20 @@ class QueriesController < ApplicationController
   def edit
   end
 
+  def wikipedia_call(query)
+    require 'unirest'
+    page = Unirest.get "https://en.wikipedia.org/w/api.php?action=query&prop=images&format=json&section=0&imlimit=1&titles='#{query}'"
+    JSON.load(File.read(open(page)))
+  end
+
   # POST /queries
   # POST /queries.json
   def create
-    @query = Query.new(query_params)
+    @search_input  = query_params['entity']
+    wikipedia_call(@search_input)
+
+    # if @response.headers[:status] == "200 OK"
+    #   @query = Query.create()
 
     respond_to do |format|
       if @query.save
@@ -69,6 +79,9 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params[:query]
+      params.require(:query).permit("entity")
     end
+
+
+
 end

@@ -2,4 +2,15 @@
 
 <%= render 'form' %>
 
+  <div class="wikipedia">
+  <%= form_for @query do |f| %>
+    <%= f.label :entity, "Entity"%>
+    <%= f.text_field :entity, placeholder: "Something" %><br>
+
+    <%= f.submit "Search", class: "btn btn-default btn-sm" %><br>
+  <% end %>
+  </div>
+ 
+  <div class="twitter"></div>
+
 <%= link_to 'Back', queries_path %>

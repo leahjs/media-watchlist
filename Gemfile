@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -52,8 +52,8 @@ group :test, :development do
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
-  gem 'wikipedia-client', '~> 1.4.0'
 end
+  gem 'wikipedia-client', '~> 1.4.0'
 
 group :production do
   gem 'pg'
@@ -64,5 +64,7 @@ end
 group :development do
   gem 'meta_request'
 end
+gem 'unirest'
+gem 'httparty'
 
 gem 'bootstrap-sass', '~> 3.1.1'

@@ -1,11 +1,11 @@
-require 'wikipedia'
+# require 'wikipedia'
 
-class Wikipedia
+# class Wikipedia < ActiveRecord::Base 
   
-  def self.wikipedia_call(query)
-    page = Wikipedia.find(query)
-    JSON.load(File.read(open(page)))
-  end
+#   def self.wikipedia_call(query)
+#     page = Wikipedia.find(query)
+#     JSON.load(File.read(open(page)))
+#   end
 
   #   def self.birth_api_call(date)
   #   search_date = Wikipedia.find("#{self.format_date(date)}").sanitized_content  
@@ -25,4 +25,4 @@ class Wikipedia
 #     JSON.load(File.read(open(url)))
 #   end
 # end
-end
+# end
