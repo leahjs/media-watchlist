@@ -23,28 +23,34 @@ class QueriesController < ApplicationController
 
   def wikipedia_call(query)
     require 'unirest'
-    page = Unirest.get "https://en.wikipedia.org/w/api.php?action=query&prop=images&format=json&section=0&imlimit=1&titles='#{query}'"
-    JSON.load(File.read(open(page)))
+    @response = Unirest.get "https://en.wikipedia.org/w/api.php?action=query&prop=images&format=json&imlimit=1&titles=query"
+    @response.to_s   
+    redirect_to query_path
+    # JSON.load(File.read(open(page)))
   end
 
   # POST /queries
   # POST /queries.json
   def create
-    @search_input  = query_params['entity']
+    @search_input = query_params['entity']
     wikipedia_call(@search_input)
 
-    # if @response.headers[:status] == "200 OK"
+    if @response.headers[:status] == "200 OK"
+      @response.body['title']
+    end
+    
+
     #   @query = Query.create()
 
-    respond_to do |format|
-      if @query.save
-        format.html { redirect_to @query, notice: 'Query was successfully created.' }
-        format.json { render :show, status: :created, location: @query }
-      else
-        format.html { render :new }
-        format.json { render json: @query.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @query.save
+    #     format.html { redirect_to @query, notice: 'Query was successfully created.' }
+    #     format.json { render :show, status: :created, location: @query }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @query.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /queries/1

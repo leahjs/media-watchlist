@@ -5,12 +5,12 @@
   <div class="wikipedia">
   <%= form_for @query do |f| %>
     <%= f.label :entity, "Entity"%>
+    <%= f.hidden_field :id %>
     <%= f.text_field :entity, placeholder: "Something" %><br>
 
     <%= f.submit "Search", class: "btn btn-default btn-sm" %><br>
   <% end %>
   </div>
- 
+  
   <div class="twitter"></div>
-
 <%= link_to 'Back', queries_path %>

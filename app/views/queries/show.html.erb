@@ -1,4 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<p>show pg</p>
+
+<% if @response %>
+<h1><%= @response['query']['pages'][1]['title'] %></h1>
+<% end %>
+
 <%= link_to 'Edit', edit_query_path(@query) %> |
 <%= link_to 'Back', queries_path %>
